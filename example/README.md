@@ -357,6 +357,9 @@ Vsebuje samo child element s povezavo na glavne tehnične metapodatke te datotek
 </METS:div>
 ```
 
+## TODO
 
+* Kako v strukturo zapisati child zbirke ali entitete?
+* Kako se vzpostavi vrstni red prikaza child zbirk ali entitet na frontendu?
 
 
