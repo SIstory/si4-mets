@@ -95,13 +95,13 @@
             </METS:div>
         </METS:div>
     </METS:structMap>
-    <METS:behaviorSec ID="default.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <!-- Prevzeta vrednost atributa @BTYPE je collection.
+    <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Prevzeta vrednost atributa @BTYPE je default.
              Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. journal, data ipd.
         -->
-        <METS:behavior BTYPE="collection">
+        <METS:behavior BTYPE="default">
             <!-- URL prelje do XML sheme, s katero se parsa mets dokumente za ElasticSearch -->
-            <METS:mechanism LOCTYPE="URL" xlink:href="http://sistory.si/resources/assets/xsd/default/mets.xsd"/>
+            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/default/"/>
         </METS:behavior>
     </METS:behaviorSec>
 </METS:mets>

@@ -1,6 +1,6 @@
 # Primeri za si4 repozitorij
 
-## Podatkovni model repozitorija si4
+## Podatkovni model (data model) repozitorija si4
 
 * **Digital Object**: Digitalni objekt ima eno ali več intelektualnih entitet:
     * **Intelectual Entity**: Intelektualna entiteta digitalnega objekta se deli na:
@@ -13,39 +13,43 @@
 
 ![img/data_model-en.jpg](img/data_model-en.jpg)
 
-Metapodatki za upravljanje enot podatkovnega modela repozitorija si4 se upravlja v mets.xml datotekah za:
+## Vsebinski model (content model) repozitorija si4
+
+Metapodatki za upravljanje enot podatkovnega modela repozitorija si4 se upravlja v mets.xml datotekah
+za vse tri vrste entitet repozitorija si4:
 
 * zbirke (collection),
-* intelektualne entitete (entity) in
+* intelektualne entitete (intelectual entity) in
 * datoteke (file).
 
-## Identifikatorji in tipi v mets.xml za vse enote podatkovnega modela si4
+Vsaka od teh enot predstavlja drug vsebinski tip (content type) repozitorija si4-
+
+## Identifikatorji in tipi v mets.xml za vsebinske tipe repozitorija si4
 
 **Opomba: Elementi in atributi iz mets.xml datotek so določeni z XPath izrazi.**
 
-Vrednost atributa /METS:mets/@TYPE določa vrsto enot podatkovnega modela:
+Vrednost atributa /METS:mets/@TYPE določa vsebinski tip:
 
 * **Zbirka** je **vedno** označeno z vrednostjo: **collection**.
 * **Datoteka** je **vedno** označena z vrednostjo: **file**.
-* **Entiteta** je **lahko** označena z vrednostjo: **entity**:
-    * **entity** je **privzeta vrednost** za entiteto, ki označuje privzeti **Dublin Core metapodatkovni model**,
-    * namesto privzetega metapodatkovnega modela ima lahko entiteta **alternativen metapodatkovni model**,
-    * alternativne metapodatkovne modele označujemo s poljubno alternativno vrednostjo atributa /METS:mets/@TYPE, npr.
-        * **journal**: znanstvene revije (MODS metapodatkovni standard),
-        * **monography**: znanstvene monografije in zbornike (MODS metapodatkovni standard),
-        * **data**: raziskovalne podatke (OpenAire metapodatkovni standard),
-        * po dogovoru še druge poljubne vrednosti.
-        
-**Metapodatkovni model za zbirke**: Za razliko od metapodatkovenga modela za
-entiteto, ki velja samo za posamezno entiteto, velja metapodatkovni model zbirke
-za vse entitete te zbirke. Metapodatkovni model zbirke se uporablja pri prikazu
-digitalnih objektov celotne zbirke (menujski pogled) in iskanju samo po tej zbirki.
-Vendar je pri tem potrebno paziti, da ne bi prihajalo do konfliktov med potencialno
-različnima metapodatkovnima modeloma zbirk in njihovih entitet
-(sorodni metapodatkovni modeli). Metapodatkovni model zbirke se v mets.xml zapiše v
+* **Intelektualna entiteta** je **vedno** označena z vrednostjo: **entity**:
+
+Vsak od teh vsebinskih tipov vsebuje najmanj en privzeti (defalut) vsebinski podtip (content subtype),
+katerim lahko kasneje dodajamo nove vsebinske podtipe. Vsebinski podtipi (content subtype) označujejo
+prikaz različnih vsebin in različnih funkcionalnosti vsebinskih tipov (content type)
+na frontendu. Ti vsebinski podtipi so v mets.xml zapisani v: 
 ```
-/METS:mets/METS:behaviorSec[@TYPE='default.behavior']/METS:behavior/@BTYPE
+/METS:mets/METS:behaviorSec[@ID=’si4.behavior’]/METS:behavior[@BTYPE=’defalut’]
 ```
+Atribut @ID opredeljuje, da je ta prikaz (oziroma behavior) predviden za
+repozitorij si4, atribut @BTYPE opredeljuje, da je tukaj predviden privzeti (defalut)
+prikaz (kot vsebinski podtip). Ta označuje privzeti **Dublin Core metapodatkovni model**.
+Poleg privzetih vsebinskih podtipov bo v prihodnosti mogoče
+dodajati še alternativne vsebinske podtipe, npr.:
+* **journal**: znanstvene revije (MODS metapodatkovni standard),
+* **monography**: znanstvene monografije in zbornike (MODS metapodatkovni standard),
+* **data**: raziskovalne podatke (OpenAire metapodatkovni standard),
+* po dogovoru še druge poljubne vrednosti.
 
 Vsaka entiteta, zbirka in datoteka ima dva identifikatorja:
 
@@ -357,9 +361,5 @@ Vsebuje samo child element s povezavo na glavne tehnične metapodatke te datotek
 </METS:div>
 ```
 
-## TODO
-
-* Kako v strukturo zapisati child zbirke ali entitete?
-* Kako se vzpostavi vrstni red prikaza child zbirk ali entitet na frontendu?
 
 

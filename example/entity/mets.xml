@@ -36,7 +36,7 @@
                 <dcterms:indentifier xsi:type="dcterms:URI">http://ojs.inz.si/pnz/issue/view/8</dcterms:indentifier>
                 <dcterms:date>2015</dcterms:date>
                 <!-- Za izpis tega podatka na SIstory se naredi prevodna tabela. V tem primeru bi tabelo dopolnili, da bi lahko dodajali tudi dvoznakovne kode. -->
-                <dcterms:language>eng</dcterms:language>
+                <dcterms:language xsi:type="dcterms:ISO639-2">eng</dcterms:language>
                 <!-- Sistory Type ukinemo: Ga mapiramo v dcterms:type (in jih hkrati prevedemo). -->
                 <dcterms:type xsi:type="dcterms:DCMIType">Text</dcterms:type>
                 <!-- Ukinemo Avtorske pravice kot HTML kodo.
@@ -108,7 +108,7 @@
             </METS:file>
             <!-- Primer za HTTP link -->
             <METS:file ID="external.1" USE="EXTERNAL">
-                <METS:FLocat USE="HTTP" LOCTYPE="URL" xlink:href="http://ojs.inz.si/pnz/issue/view/8"/>
+                <METS:FLocat USE="HTTP" LOCTYPE="URL" xlink:title="Opcijski opisni naslov povezave, ki ga prikaže na frontend poleg povezave" xlink:href="http://ojs.inz.si/pnz/issue/view/8"/>
             </METS:file>
             <!-- Primer za YouTube video kodo  -->
             <!-- V primeru video predstavitev bo potrebno napisati posebno kodo, ki bo povezavo iz href atributa umestil v generično kodo za video prikaz -->
@@ -183,5 +183,13 @@
             </METS:div>
         </METS:div>
     </METS:structMap>
-    
+    <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Prevzeta vrednost atributa @BTYPE je default.
+             Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. journal, data ipd.
+        -->
+        <METS:behavior BTYPE="default">
+            <!-- URL prelje do XML sheme, s katero se parsa mets dokumente za ElasticSearch -->
+            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/default/"/>
+        </METS:behavior>
+    </METS:behaviorSec>
 </METS:mets>
