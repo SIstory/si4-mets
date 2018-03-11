@@ -113,7 +113,11 @@
             <!-- Primer za YouTube video kodo  -->
             <!-- V primeru video predstavitev bo potrebno napisati posebno kodo, ki bo povezavo iz href atributa umestil v generično kodo za video prikaz -->
             <METS:file ID="external.2" USE="EXTERNAL">
-                <METS:FLocat USE="YOUTUBE" LOCTYPE="URL" xlink:href="http://www.youtube.com/embed/6HvZKFT90zw"/>
+                <METS:FLocat USE="YOUTUBE" LOCTYPE="URL" xlink:title="Opcijski opis" xlink:href="http://www.youtube.com/embed/6HvZKFT90zw"/>
+            </METS:file>
+            <!-- Primer HTML5 prikaza videokode -->
+            <METS:file ID="external.3" USE="EXTERNAL">
+                <METS:FLocat USE="HTML5-VIDEO" LOCTYPE="URL" xlink:title="Opcijski opis" xlink:href="http://www.sistory.si/cdn/publikacije/37001-38000/37914/SoleNasihBabic.mp4"/>
             </METS:file>
         </METS:fileGrp>
         <!-- Primer posebne HTML skupine dokumentov -->
@@ -142,6 +146,7 @@
                 <METS:fptr FILEID="thumbnail"/>
                 <METS:fptr FILEID="external.1"/>
                 <METS:fptr FILEID="external.2"/>
+                <METS:fptr FILEID="external.3"/>
                 <METS:fptr FILEID="file.1"/>
                 <METS:fptr FILEID="file.2"/>
                 <METS:fptr FILEID="file.3"/>
