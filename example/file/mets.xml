@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- se v METS:mets/@ID generira za oznako "file." unikatni številčni ID repozitorija si4 -->
 <METS:mets xmlns:METS="http://www.loc.gov/METS/"
     xmlns:xlink="http://www.w3.org/TR/xlink"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,7 +7,6 @@
     xmlns:dcmitype="http://purl.org/dc/dcmitype/"
     xmlns:premis="http://www.loc.gov/premis/v3"
     xmlns:mods="http://www.loc.gov/mods/v3"
-    ID="file."
     TYPE="file"
     OBJID="http://hdl.handle.net/11686/file22731"
     xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd
