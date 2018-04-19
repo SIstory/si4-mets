@@ -44,7 +44,7 @@
                 <!-- Ker je možno, da so nazivi tabov večjezični, mora biti za vsako jezikovno različico poseben title -->
                 <dcterms:title xml:lang="eng">Publications</dcterms:title>
                 <!-- relativna pot do angleške vstopne strani si4 -->
-                <dcterms:relation xsi:type="dcterms:URI">/?lang=eng</dcterms:relation>
+                <dcterms:relation xsi:type="dcterms:URI">/?language=en</dcterms:relation>
             </METS:xmlData>
         </METS:mdWrap>
     </METS:dmdSec>
@@ -54,7 +54,7 @@
                 <dcterms:title xml:lang="slv">Žrtve</dcterms:title>
                 <dcterms:relation xsi:type="dcterms:URI">/zrtve</dcterms:relation>
                 <dcterms:title xml:lang="eng">Publications</dcterms:title>
-                <dcterms:relation xsi:type="dcterms:URI">/zrtve/?lang=eng</dcterms:relation>
+                <dcterms:relation xsi:type="dcterms:URI">/zrtve/?language=en</dcterms:relation>
             </METS:xmlData>
         </METS:mdWrap>
     </METS:dmdSec>
