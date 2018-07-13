@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS:mets xmlns:METS="http://www.loc.gov/METS/"
+    xmlns:xlink="http://www.w3.org/TR/xlink"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    TYPE="collection"
+    ID="si4.menu666"
+    OBJID="http://hdl.handle.net/11686/menu666"
+    xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd">
+    <METS:metsHdr CREATEDATE="2016-12-07T11:25:58" LASTMODDATE="2018-02-05T07:21:21" RECORDSTATUS="Active">
+        <METS:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+            <METS:name>SIstory</METS:name>
+            <METS:note>http://sistory.si/</METS:note>
+        </METS:agent>
+        <METS:agent ROLE="CREATOR" ID="user.11" TYPE="INDIVIDUAL">
+            <METS:name>Pančur, Andrej</METS:name>
+        </METS:agent>
+    </METS:metsHdr>
+    <METS:dmdSec ID="default.dc">
+        <METS:mdWrap MDTYPE="DC" MIMETYPE="text/xml">
+            <METS:xmlData xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:dcterms="http://purl.org/dc/terms/" 
+                xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+                xsi:schemaLocation="http://purl.org/dc/terms/ http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd">
+                <dcterms:title xml:lang="slv">O SIstory</dcterms:title>
+                <dcterms:title xml:lang="eng">About</dcterms:title>
+            </METS:xmlData>
+        </METS:mdWrap>
+    </METS:dmdSec>
+    <METS:amdSec ID="default.amd">
+        <METS:techMD ID="default.premis">
+            <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3"
+                    xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd
+                    http://www.loc.gov/standards/premis/v1 https://www.loc.gov/standards/premis/premis.xsd">
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>si4</premis:objectIdentifierType>
+                        <!-- se generira številčni ID ob uvozu v si4 -->
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>Local name</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue>menu666</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>hdl</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue>http://hdl.handle.net/11686/menu666</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>Collection</premis:objectCategory>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+        <METS:techMD ID="default.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="COLLECTION" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:collection="http://sistory.si/schema/si4/collection" xsi:schemaLocation="http://sistory.si/si4/collection ../../schema/collection.1.0.xsd">
+                    <collection:desc xml:lang="slv"><![CDATA[<div xmlns="http://www.w3.org/1999/xhtml">
+                        <h2>O portalu <em>Zgodovina Slovenije - SIstory</em></h2>
+                        <p>Portal <em>Zgodovina Slovenije - SIstory</em> nastaja v okviru dejavnosti <a
+                            href="/publikacije/?menuBottom=2" target="_blank">raziskovalne infrastrukture
+                            Slovenskega zgodovinopisja</a>. Portal SIstory je spletni sistem slovenskega
+                            zgodovinopisja, ki poleg dostopnih historičnih vsebin, relevantnih za proučevanje
+                            slovenske zgodovine, omogoča ustvarjanje raziskovalnih podatkov in njihovo uporabo v
+                            raziskovalnem okolju.</p>
+                    </div>]]></collection:desc>
+                    <collection:desc xml:lang="eng"><![CDATA[<div xmlns="http://www.w3.org/1999/xhtml">
+                        <h2>About the History of Slovenia – SIstory portal</h2>
+                        <p>The <em>History of Slovenia – SIstory</em> portal has been established as part of
+                            activities carried out by the <a href="/publikacije/?menuBottom=2&amp;language=en"
+                                target="_blank">Research Infrastructure of Slovenian Historiography</a>. The
+                            SIstory portal is an online system of Slovenian historiography, which not only
+                            enables access to historical content relevant for the study of Slovenian history but
+                            also offers the possibility to create research data and use it in a research
+                            environment.</p></div>]]></collection:desc>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+    </METS:amdSec>
+    <METS:structMap ID="default.structure" TYPE="dependent" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:div TYPE="collection">
+            <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/menuBottom"/>
+            <METS:div TYPE="collection" DMDID="default.dc" ADMID="default.amd">
+                <!-- nato sledijo morebitne child zbirke -->
+                <METS:div TYPE="collection" ORDER="1">
+                    <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/childcollection"/>
+                </METS:div>
+            </METS:div>
+        </METS:div>
+    </METS:structMap>
+    <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:behavior BTYPE="default">
+            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/default/"/>
+        </METS:behavior>
+    </METS:behaviorSec>
+</METS:mets>

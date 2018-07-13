@@ -14,7 +14,7 @@
 
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/> 
   
-  <xs:element name="description">
+  <xs:element name="desc">
     <xs:annotation>
       <xs:documentation xml:lang="sl">Opisna predstavitev intelektualne entitete na spletni strani repozitorija si4 v HTML kodi.
         Označba jezika določi, na kateri jezikovni spletni strani se prikaže. 
@@ -49,7 +49,7 @@
   <xs:group name="elementsGroup">
     <xs:sequence>
       <xs:choice>
-        <xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="desc" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="page" minOccurs="0"/>
         <xs:element ref="removedTo" minOccurs="0"/>
         <xs:element ref="newVersion" minOccurs="0"/>
