@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Najprej poglej /template/common.xml, ki je skupni template ze vse vrste si4 entitet. -->
+<METS:mets xmlns:METS="http://www.loc.gov/METS/"
+    xmlns:xlink="http://www.w3.org/TR/xlink"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    TYPE="collection"
+    ID=""
+    OBJID="">
+    <METS:metsHdr CREATEDATE="" LASTMODDATE="" RECORDSTATUS="">
+        <METS:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+            <METS:name></METS:name>
+            <METS:note></METS:note>
+        </METS:agent>
+        <METS:agent ROLE="CREATOR" ID="" TYPE="INDIVIDUAL">
+            <METS:name></METS:name>
+        </METS:agent>
+    </METS:metsHdr>
+    <METS:dmdSec ID="description">
+        <METS:mdWrap MDTYPE="">
+            <!-- Vsebuje METS:xmlData, katerega vsebina je odvisna od METS:mets/METS:behaviorSec/METS:behavior/@BTYPE -->
+        </METS:mdWrap>
+    </METS:dmdSec>
+    <METS:amdSec ID="amd">
+        <METS:techMD ID="tech.premis">
+            <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3">
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>si4</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>Local name</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>hdl</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory></premis:objectCategory>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+        <METS:techMD ID="tech.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="SI4" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:si4="http://si4.si/schema/">
+                    <si4:additionalMetadata>false</si4:additionalMetadata>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+    </METS:amdSec>
+    <!-- Ko uvozimo in v relacijski bazi shranimo podatke o fizičnih datotekah, ki so vezane na posamezno intelektualno entiteto,
+         se v mets.xml zapiše METS:fileSec -->
+    <METS:fileSec ID="files" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:fileGrp>
+            <!-- Obstajajo dve vrsti fizičnih datotek:
+                 - fizične datoteke, ki so shranjene v si4 repozitoriju (glej file entiteto);
+                 - povezave na datoteke, ki se nahajajo zunaj si4 repozitorija (rezervirana oznaka za te vrste datotek je EXTERNAL)
+            -->
+            <!-- Template za fizične datoteke: -->
+            <!-- Atribut ID vsebuje Handle suffix relacijsko povezane file entitete (npr. file22731).
+                 V atributu OWNERID se zapiše ime fizične datoteke (npr. PNZ-2015-3.pdf).
+                 V atributu USE je na frontendu aprent intelektualne entitete zapisan prikaz datotek:
+                   - Če je vrednost DEFAULT so podatki o datotekah prikazani znotraj privzete skupine,
+                   - Če je druga poljubna vrednost (npr. HTML) so vse datoteke te skupine prikazane skupaj.
+            -->
+            <METS:file ID="" OWNERID="" USE="">
+                <!-- Atribut xlink:href vsebuje handle te datoteke (npr. https://hdl.handle.net/11686/file22731) -->
+                <METS:FLocat LOCTYPE="HANDLE" xlink:href=""/>
+            </METS:file>
+            <!-- Template za zunanje povezave -->
+            <!-- Atribut ID vsebuje identifikator zunanje povezave, ki je sestavljen iz oznake external. in 
+                      integer identifikatorja zunanje povezave v relacijski bazi (npr. external.12)
+                 Atribut USE: zunanja povezava ima privzeto vrednost EXTERNAL
+            -->
+            <METS:file ID="" USE="EXTERNAL">
+                <!-- Vrsta zunanje povezave in način njenega prikaza določa atribut FLocat/@USE. TRenutno možne tri vrednosti:
+                      - HTTP za http zunanjo povezavo,
+                      - YOUTUBE za prikaz YouTube videokode,
+                      - HTML5-VIDEO za prikaz HTML5 videokode
+                    Atribut xlink:title: Opcijski opisni naslov povezave, ki ga na frontend prikaže poleg povezave
+                    Atribut xlink:href vsebuje zunanjo povezavo (npr. http://www.youtube.com/embed/6HvZKFT90zw)
+                -->
+                <METS:FLocat USE="" LOCTYPE="URL" xlink:title="" xlink:href=""/>
+            </METS:file>
+        </METS:fileGrp>
+    </METS:fileSec>
+    <!-- Template za vse bližnje relacije te entitete: se shranijo v XML zapis iz relacijske baze. -->
+    <!-- Atribut TYPE ima dve možni vrednosti, ki določata izhodiščni položaj entitete:
+           - primary
+           - dependant -->
+    <METS:structMap ID="structure" TYPE="" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Najprej je vedno določena parent entiteta:
+               - če je izhodiščna entiteta primary je vrednost atributa TYPE collection,
+               - če je izhodiščna entiteta dependant je vrednost atributa TYPE entity -->
+        <METS:div TYPE="">
+            <!-- Atribut xlink:href vsebuje Handle parent entitete (npr. http://hdl.handle.net/11686/menu76) -->
+            <METS:mptr LOCTYPE="HANDLE" xlink:href=""/>
+            <!-- Privzeti div za izhodiščno intelektualno entiteto -->
+            <METS:div TYPE="entity" DMDID="description" ADMID="administrative">
+                <!-- Seznam vseh pripadajočih datotek (tako zunanjih kot si4) te intelektualne entitete.
+                     Atribut FILEID vsebuje identifikator iz zgornjega METS:metsMETS:fileSec/METS:fileGrp/METS:file/@ID
+                -->
+                <METS:fptr FILEID=""/>
+                <!-- Vse morebitne child intelektualne entitite.
+                     Atribut ORDER vsebuje vrstni red iz relacijske baze (sistemski identifikator child entitete ali poljubno integer vrednost).
+                -->
+                <METS:div TYPE="entity" ORDER="">
+                    <!-- Atribut xlink:href vsebuje Handle child entitete (npr. http://hdl.handle.net/11686/36114) -->
+                    <METS:mptr LOCTYPE="HANDLE" xlink:href=""/>
+                </METS:div>
+            </METS:div>
+        </METS:div>
+    </METS:structMap>
+    <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:behavior BTYPE="">
+            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
+        </METS:behavior>
+    </METS:behaviorSec>
+</METS:mets>

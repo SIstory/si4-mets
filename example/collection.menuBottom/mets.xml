@@ -15,7 +15,7 @@
             <METS:name>Pančur, Andrej</METS:name>
         </METS:agent>
     </METS:metsHdr>
-    <METS:dmdSec ID="default.dc">
+    <METS:dmdSec ID="description">
         <METS:mdWrap MDTYPE="DC" MIMETYPE="text/xml">
             <METS:xmlData xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/" 
@@ -26,8 +26,8 @@
             </METS:xmlData>
         </METS:mdWrap>
     </METS:dmdSec>
-    <METS:amdSec ID="default.amd">
-        <METS:techMD ID="default.premis">
+    <METS:amdSec ID="administrative">
+        <METS:techMD ID="tech.premis">
             <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
                 <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3"
                     xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd
@@ -49,10 +49,11 @@
                 </METS:xmlData>
             </METS:mdWrap>
         </METS:techMD>
-        <METS:techMD ID="default.si4">
-            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="COLLECTION" MIMETYPE="text/xml">
-                <METS:xmlData xmlns:collection="http://sistory.si/schema/si4/collection" xsi:schemaLocation="http://sistory.si/si4/collection ../../schema/collection.1.0.xsd">
-                    <collection:desc xml:lang="slv"><![CDATA[<div xmlns="http://www.w3.org/1999/xhtml">
+        <METS:techMD ID="tech.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="SI4" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:si4="http://si4.si/schema/" xsi:schemaLocation="http://si4.si/schema/ ../../schema/si4.1.0.xsd">
+                    <si4:additionalMetadata>false</si4:additionalMetadata>
+                    <si4:desc xml:lang="slv"><![CDATA[<div xmlns="http://www.w3.org/1999/xhtml">
                         <h2>O portalu <em>Zgodovina Slovenije - SIstory</em></h2>
                         <p>Portal <em>Zgodovina Slovenije - SIstory</em> nastaja v okviru dejavnosti <a
                             href="/publikacije/?menuBottom=2" target="_blank">raziskovalne infrastrukture
@@ -60,8 +61,8 @@
                             zgodovinopisja, ki poleg dostopnih historičnih vsebin, relevantnih za proučevanje
                             slovenske zgodovine, omogoča ustvarjanje raziskovalnih podatkov in njihovo uporabo v
                             raziskovalnem okolju.</p>
-                    </div>]]></collection:desc>
-                    <collection:desc xml:lang="eng"><![CDATA[<div xmlns="http://www.w3.org/1999/xhtml">
+                    </div>]]></si4:desc>
+                    <si4:desc xml:lang="eng"><![CDATA[<div xmlns="http://www.w3.org/1999/xhtml">
                         <h2>About the History of Slovenia – SIstory portal</h2>
                         <p>The <em>History of Slovenia – SIstory</em> portal has been established as part of
                             activities carried out by the <a href="/publikacije/?menuBottom=2&amp;language=en"
@@ -69,15 +70,15 @@
                             SIstory portal is an online system of Slovenian historiography, which not only
                             enables access to historical content relevant for the study of Slovenian history but
                             also offers the possibility to create research data and use it in a research
-                            environment.</p></div>]]></collection:desc>
+                            environment.</p></div>]]></si4:desc>
                 </METS:xmlData>
             </METS:mdWrap>
         </METS:techMD>
     </METS:amdSec>
-    <METS:structMap ID="default.structure" TYPE="dependent" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <METS:structMap ID="structure" TYPE="dependant" xmlns:xlink="http://www.w3.org/1999/xlink">
         <METS:div TYPE="collection">
             <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/menuBottom"/>
-            <METS:div TYPE="collection" DMDID="default.dc" ADMID="default.amd">
+            <METS:div TYPE="collection" DMDID="description" ADMID="administrative">
                 <!-- nato sledijo morebitne child zbirke -->
                 <METS:div TYPE="collection" ORDER="1">
                     <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/childcollection"/>
@@ -86,8 +87,8 @@
         </METS:div>
     </METS:structMap>
     <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <METS:behavior BTYPE="default">
-            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/default/"/>
+        <METS:behavior BTYPE="dublincore">
+            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
         </METS:behavior>
     </METS:behaviorSec>
 </METS:mets>

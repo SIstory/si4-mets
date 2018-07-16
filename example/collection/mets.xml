@@ -15,7 +15,7 @@
             <METS:name>Pančur, Andrej</METS:name>
         </METS:agent>
     </METS:metsHdr>
-    <METS:dmdSec ID="default.dc">
+    <METS:dmdSec ID="description">
         <METS:mdWrap MDTYPE="DC" MIMETYPE="text/xml">
             <METS:xmlData xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/" 
@@ -35,9 +35,9 @@
             </METS:xmlData>
         </METS:mdWrap>
     </METS:dmdSec>
-    <METS:amdSec ID="default.amd">
+    <METS:amdSec ID="amd">
         <!-- v premis:object je najprej zapisan identifikator te entitete tako v relacijski bazi kot handle različica -->
-        <METS:techMD ID="default.premis">
+        <METS:techMD ID="tech.premis">
             <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
                 <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3"
                     xsi:schemaLocation="http://www.loc.gov/standards/premis/v1 https://www.loc.gov/standards/premis/premis.xsd">
@@ -58,26 +58,25 @@
                 </METS:xmlData>
             </METS:mdWrap>
         </METS:techMD>
-        <METS:techMD ID="default.si4">
-            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="COLLECTION" MIMETYPE="text/xml">
-                <METS:xmlData xmlns:collection="http://sistory.si/schema/si4/collection" xsi:schemaLocation="http://sistory.si/si4/collection ../../schema/collection.1.0.xsd">
-                    <collection:desc xml:lang="slv"><![CDATA[<p>Prispevki za novejšo zgodovino je ena osrednjih slovenskih znanstvenih zgodovinopisnih revij, ki objavlja teme s področja novejše zgodovine (19. in 20. stoletje) srednje in jugovzhodne Evrope. Od leta 1960 revijo redno izdaja Inštitut za novejšo zgodovino (v letih 1957-58 je izhajala pod imenom Letopis muzeja narodne osvoboditve LRS, med leti 1960-86 pod imenom Prispevki za zgodovino delavskega gibanja). Revija izide trikrat letno v slovenskem jeziku in v naslednjih tujih jezikih: angleščina, nemščina, srbščina, hrvaščina, bosanščina, italijanščina, slovaščina in češčina. Članki izhajajo z izvlečki v angleščini in slovenščini ter s povzetki v angleščini.</p>
-                        <p>Revija seznanja javnost z novejšimi raziskavami slovenskega (in tudi tujega) zgodovinopisja s področja zgodovine srednje in jugovzhodne Evrope 19. in 20. stoletja (politična, gospodarska, kulturna in socialna zgodovina). V prvih letih izhajanja je bil poudarek sicer na zgodovini delavskega gibanja, nato pa se je vsebina razširila tudi na druge teme. Poleg znanstvenih člankov revija objavlja ocene in poročila o pomembnejših delih iz novejše zgodovine. Med ustaljenimi rubrikami je objavljanje historične dokumentacije, v kateri so s strokovnimi komentarji objavljani izbrani zgodovinski viri.</p>]]></collection:desc>
-                    <collection:desc xml:lang="eng"><![CDATA[<p>Prispevki za novejšo zgodovino [Contributions to Contemporary History] is one of the central Slovenian scientific historiographic journals, dedicated to publishing articles from the field of contemporary history (the 19th and 20th century). It has been published regularly since 1960 by the Institute of Contemporary History, and until 1986 it was entitled Contributions to the History of the Workers' Movement. The journal is published three times per year in Slovenian and in the following foreign languages: English, German, Serbian, Croatian, Bosnian, Italian, Slovak and Czech. The articles are all published with abstracts in English and Slovenian as well as summaries in English.</p>]]></collection:desc>
+        <METS:techMD ID="tech.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="SI4" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:si4="http://si4.si/schema/" xsi:schemaLocation="http://si4.si/schema/ ../../schema/si4.1.0.xsd">
+                    <si4:additionalMetadata>false</si4:additionalMetadata>
+                    <si4:desc xml:lang="slv"><![CDATA[<p>Prispevki za novejšo zgodovino je ena osrednjih slovenskih znanstvenih zgodovinopisnih revij, ki objavlja teme s področja novejše zgodovine (19. in 20. stoletje) srednje in jugovzhodne Evrope. Od leta 1960 revijo redno izdaja Inštitut za novejšo zgodovino (v letih 1957-58 je izhajala pod imenom Letopis muzeja narodne osvoboditve LRS, med leti 1960-86 pod imenom Prispevki za zgodovino delavskega gibanja). Revija izide trikrat letno v slovenskem jeziku in v naslednjih tujih jezikih: angleščina, nemščina, srbščina, hrvaščina, bosanščina, italijanščina, slovaščina in češčina. Članki izhajajo z izvlečki v angleščini in slovenščini ter s povzetki v angleščini.</p>
+                        <p>Revija seznanja javnost z novejšimi raziskavami slovenskega (in tudi tujega) zgodovinopisja s področja zgodovine srednje in jugovzhodne Evrope 19. in 20. stoletja (politična, gospodarska, kulturna in socialna zgodovina). V prvih letih izhajanja je bil poudarek sicer na zgodovini delavskega gibanja, nato pa se je vsebina razširila tudi na druge teme. Poleg znanstvenih člankov revija objavlja ocene in poročila o pomembnejših delih iz novejše zgodovine. Med ustaljenimi rubrikami je objavljanje historične dokumentacije, v kateri so s strokovnimi komentarji objavljani izbrani zgodovinski viri.</p>]]></si4:desc>
+                    <si4:desc xml:lang="eng"><![CDATA[<p>Prispevki za novejšo zgodovino [Contributions to Contemporary History] is one of the central Slovenian scientific historiographic journals, dedicated to publishing articles from the field of contemporary history (the 19th and 20th century). It has been published regularly since 1960 by the Institute of Contemporary History, and until 1986 it was entitled Contributions to the History of the Workers' Movement. The journal is published three times per year in Slovenian and in the following foreign languages: English, German, Serbian, Croatian, Bosnian, Italian, Slovak and Czech. The articles are all published with abstracts in English and Slovenian as well as summaries in English.</p>]]></si4:desc>
                     <!-- Morebitna povezava na zunanjo zbirko -->
-                    <!-- Mogoče bi naredili podobno kot pri entitetah? -->
-                    <collection:externalCollection></collection:externalCollection>
-                    <collection:wholeContent>false</collection:wholeContent>
-                    <collection:searchResultsSort>Title ascending</collection:searchResultsSort>
-                    <collection:searchResultsShow>Multiple per line</collection:searchResultsShow>
+                    <si4:externalCollection></si4:externalCollection>
+                    <si4:searchResultsSort>Title ascending</si4:searchResultsSort>
+                    <si4:searchResultsShow>Multiple per line</si4:searchResultsShow>
                 </METS:xmlData>
             </METS:mdWrap>
         </METS:techMD>
     </METS:amdSec>
-    <METS:structMap ID="default.structure" TYPE="dependent" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <METS:structMap ID="structure" TYPE="dependant" xmlns:xlink="http://www.w3.org/1999/xlink">
         <METS:div TYPE="collection">
             <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/menu16"/>
-            <METS:div TYPE="collection" DMDID="default.dc" ADMID="default.amd">
+            <METS:div TYPE="collection" DMDID="description" ADMID="amd">
                 <!-- nato sledijo morebitne child zbirke -->
                 <METS:div TYPE="collection" ORDER="1">
                     <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/childcollection"/>
@@ -92,10 +91,10 @@
         </METS:div>
     </METS:structMap>
     <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <!-- Prevzeta vrednost atributa @BTYPE je default.
-             Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. journal, data ipd.
+        <!-- Prevzeta vrednost atributa @BTYPE je dublincore.
+             Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. mods, data ipd.
         -->
-        <METS:behavior BTYPE="default">
+        <METS:behavior BTYPE="dublincore">
             <!-- URL prelje do XML sheme, s katero se parsa mets dokumente za ElasticSearch -->
             <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
         </METS:behavior>

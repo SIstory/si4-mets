@@ -15,7 +15,7 @@
             <METS:name>Pančur, Andrej</METS:name>
         </METS:agent>
     </METS:metsHdr>
-    <METS:dmdSec ID="default.dc">
+    <METS:dmdSec ID="description">
         <METS:mdWrap MDTYPE="DC" MIMETYPE="text/xml">
             <METS:xmlData xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/"
@@ -38,31 +38,13 @@
                      zato bo HTML za te licence raje prikazalo programsko s pretvorbo iz licence URI oznake.
                 -->
                 <dcterms:license xsi:type="dcterms:URI">http://creativecommons.org/licenses/by-nc-nd/4.0/</dcterms:license>
-                <!-- sistory collection se mapira v isPartOf, hkrati se lahko zapiše v spodnji /METS:mets/METS:dmdSec[@ID='mods'] kot mods:mods/mods:relatedItem[@type='series'] -->
+                <!-- sistory collection se mapira v isPartOf -->
                 <dcterms:isPartOf>Zbirka monografije; 4</dcterms:isPartOf>
             </METS:xmlData>
         </METS:mdWrap>
     </METS:dmdSec>
-    <METS:dmdSec ID="default.mods">
-        <METS:mdWrap MDTYPE="MODS" MIMETYPE="text/xml">
-            <METS:xmlData xmlns:mods="http://www.loc.gov/mods/v3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/mods.xsd">
-                <mods:mods>
-                    <mods:relatedItem type="series">
-                        <mods:titleInfo>
-                            <mods:title>Odsevi preteklosti</mods:title>
-                        </mods:titleInfo>
-                        <mods:part>
-                            <mods:detail type="volumens">
-                                <mods:number>5</mods:number>
-                            </mods:detail>
-                        </mods:part>
-                    </mods:relatedItem>
-                </mods:mods>
-            </METS:xmlData>
-        </METS:mdWrap>
-    </METS:dmdSec>
-    <METS:amdSec ID="default.amd">
-        <METS:techMD ID="default.premis">
+    <METS:amdSec ID="administrative">
+        <METS:techMD ID="tech.premis">
             <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
                 <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
                     <premis:objectIdentifier>
@@ -84,13 +66,15 @@
         </METS:techMD>
         <!-- Za si4 aplikacijo potrebni dodatni administrativni tehnični metapodki (use characteristics): 
         XML shemo, ki jo sedaj dostopam lokalno, obvezno shrani na primernem mestu na SIstory!!!!! -->
-        <METS:techMD ID="default.si4">
-            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="ENTITY" MIMETYPE="text/xml">
-                <METS:xmlData xmlns:entity="http://sistory.si/schema/si4/entity" xsi:schemaLocation="http://sistory.si/schema/si4/entity ../../schema/entity.1.0.xsd">
-                    <!-- Nujno dodamo leto??? Jaz bi to odstranil!! -->
-                    <entity:desc xml:lang="slv">Opisni podatki za slovensko stran, skupaj z morebitnimi <strong>html</strong>.</entity:desc>
+        <METS:techMD ID="tech.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="SI4" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:si4="http://si4.si/schema/" xsi:schemaLocation="http://si4.si/schema/ ../../schema/si4.1.0.xsd">
+                    <!-- Dodatni metapodatki, ki niso vključeni v si4 aplikacijski profil -->
+                    <si4:additionalMetadata>true</si4:additionalMetadata>
+                    <si4:additionalMetadataURL>http://www.clarin.si/8888/12345/mets.xml</si4:additionalMetadataURL>
+                    <si4:desc xml:lang="slv">Opisni podatki za slovensko stran, skupaj z morebitnimi <strong>html</strong>.</si4:desc>
                     <!-- sem se vstavi polje Stran publikacije  -->
-                    <entity:page>1</entity:page>
+                    <si4:pdfPage>1</si4:pdfPage>
                     <!-- Sem se vstavi polje URL umaknjene publikacije.
                          Debata: Naredili bi dve možnosti:
                            - isto kot sedaj za umaknjeno publikacijo, ki te potem, ko ti pove,
@@ -100,20 +84,20 @@
                                 - da pogledaš nov digitalni objekt (nato preusmeritev na njega);
                                 - da vseeno pogledaš to verzijo.
                     -->
-                    <entity:removedTo></entity:removedTo>
+                    <si4:removedTo></si4:removedTo>
                     <!-- podatke za tage bi odstranili -->
                 </METS:xmlData>
             </METS:mdWrap>
         </METS:techMD>
     </METS:amdSec>
-    <METS:fileSec ID="default.file" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <METS:fileSec ID="files" xmlns:xlink="http://www.w3.org/1999/xlink">
         <METS:fileGrp>
             <!-- dodan thumbnail -->
             <METS:file ID="thumbnail" OWNERID="PNZ-2015-3-naslovnica.png" USE="THUMB">
                 <METS:FLocat LOCTYPE="URL" xlink:href="http://www.sistory.si/cdn/publikacije/36001-37000/36113/PNZ-2015-3-naslovnica.png"/>
             </METS:file>
             <!-- Primer povezave na datoteko s svojim mets.xml -->
-            <METS:file ID="file.1" OWNERID="PNZ-2015-3.pdf" USE="DEFAULT">
+            <METS:file ID="file22731" OWNERID="PNZ-2015-3.pdf" USE="DEFAULT">
                 <METS:FLocat LOCTYPE="HANDLE" xlink:href="https://hdl.handle.net/11686/file22731"/>
             </METS:file>
             <!-- Primer za HTTP link -->
@@ -130,36 +114,37 @@
                 <METS:FLocat USE="HTML5-VIDEO" LOCTYPE="URL" xlink:title="Opcijski opis" xlink:href="http://www.sistory.si/cdn/publikacije/37001-38000/37914/SoleNasihBabic.mp4"/>
             </METS:file>
             <!-- Primer posebne HTML skupine dokumentov -->
-            <METS:file ID="file.2" OWNERID="index.html" USE="HTML">
+            <METS:file ID="file18649" OWNERID="index.html" USE="HTML">
                 <METS:FLocat LOCTYPE="HANDLE" xlink:href="https://hdl.handle.net/11686/file18649"/>
             </METS:file>
-            <METS:file ID="file.3" OWNERID="impressum.html" USE="HTML">
+            <METS:file ID="file18650" OWNERID="impressum.html" USE="HTML">
                 <METS:FLocat LOCTYPE="HANDLE" xlink:href="https://hdl.handle.net/11686/file18650"/>
             </METS:file>
-            <METS:file ID="file.4" OWNERID="teiHeader.html" USE="HTML">
+            <METS:file ID="file18651" OWNERID="teiHeader.html" USE="HTML">
                 <METS:FLocat LOCTYPE="HANDLE" xlink:href="https://hdl.handle.net/11686/file18651"/>
             </METS:file>
-            <METS:file ID="file.5" OWNERID="tocJournal.html" USE="HTML">
+            <METS:file ID="file18652" OWNERID="tocJournal.html" USE="HTML">
                 <METS:FLocat LOCTYPE="HANDLE" xlink:href="https://hdl.handle.net/11686/file18652"/>
             </METS:file>
-            <METS:file ID="file.6" OWNERID="tipuesearch_content.js" USE="HTML">
+            <METS:file ID="file18733" OWNERID="tipuesearch_content.js" USE="HTML">
                 <METS:FLocat LOCTYPE="HANDLE" xlink:href="https://hdl.handle.net/11686/file18733"/>
             </METS:file>
         </METS:fileGrp>
     </METS:fileSec>
-    <METS:structMap ID="default.structure" TYPE="primary" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <METS:structMap ID="structure" TYPE="primary" xmlns:xlink="http://www.w3.org/1999/xlink">
         <METS:div TYPE="collection">
             <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/menu76"/>
-            <METS:div TYPE="entity" DMDID="default.dc" ADMID="default.amd">
+            <METS:div TYPE="entity" DMDID="description" ADMID="administrative">
                 <METS:fptr FILEID="thumbnail"/>
                 <METS:fptr FILEID="external.1"/>
                 <METS:fptr FILEID="external.2"/>
                 <METS:fptr FILEID="external.3"/>
-                <METS:fptr FILEID="file.1"/>
-                <METS:fptr FILEID="file.2"/>
-                <METS:fptr FILEID="file.3"/>
-                <METS:fptr FILEID="file.4"/>
-                <METS:fptr FILEID="file.5"/>
+                <METS:fptr FILEID="file22731"/>
+                <METS:fptr FILEID="file18649"/>
+                <METS:fptr FILEID="file18650"/>
+                <METS:fptr FILEID="file18651"/>
+                <METS:fptr FILEID="file18652"/>
+                <METS:fptr FILEID="file18733"/>
                 <!-- Pri prikazu mets.xml v URL repozitorija si4 (npr. http://www.sistory.si/11686/menu76/mets.xml)
                      se tukaj izpišejo še vse neposredne child entitete -->
                 <!-- Problem vrstnega reda prikazovanja -->
@@ -197,10 +182,10 @@
         </METS:div>
     </METS:structMap>
     <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <!-- Prevzeta vrednost atributa @BTYPE je default (vključuje Dublin Core).
-             Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. MODS, data ipd.
+        <!-- Prevzeta vrednost atributa @BTYPE je dublincore.
+             Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. mods, data ipd.
         -->
-        <METS:behavior BTYPE="default">
+        <METS:behavior BTYPE="dublincore">
             <!-- URL prelje do XML sheme, s katero se parsa mets dokumente za ElasticSearch -->
             <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
         </METS:behavior>

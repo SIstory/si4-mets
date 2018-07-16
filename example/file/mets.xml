@@ -18,21 +18,21 @@
         </METS:agent>
     </METS:metsHdr>
     <!-- Opcijski Dublin Core opisni metapodatki za datoteko -->
-    <METS:dmdSec ID="default.dc">
+    <METS:dmdSec ID="description">
         <METS:mdWrap MDTYPE="DC">
             <METS:xmlData xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/"
                 xmlns:dcmitype="http://purl.org/dc/dcmitype/"
                 xsi:schemaLocation="http://purl.org/dc/terms/ http://dublincore.org/schemas/xmls/qdc/dcterms.xsd">
                 <!-- Prikaže na frontednu kot Naslov -->
-                <dcterms:title>Prispevki za novejšo zgodovino, 2015, No. 3, Complex Parliaments in Transition: Central European Federations Facing Regime Change</dcterms:title>
+                <dc:title>Prispevki za novejšo zgodovino, 2015, No. 3, Complex Parliaments in Transition: Central European Federations Facing Regime Change</dc:title>
                 <!-- Prikaže kot Opis -->
-                <dcterms:description>Master PDF file</dcterms:description>
+                <dc:description>Master PDF file</dc:description>
             </METS:xmlData>
         </METS:mdWrap>
     </METS:dmdSec>
-    <METS:amdSec ID="default.amd">
-        <METS:techMD ID="default.premis">
+    <METS:amdSec ID="administrative">
+        <METS:techMD ID="tech.premis">
             <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
                 <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3"
                     xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
@@ -53,19 +53,26 @@
                 </METS:xmlData>
             </METS:mdWrap>
         </METS:techMD>
+        <METS:techMD ID="tech.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="SI4" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:si4="http://si4.si/schema/" xsi:schemaLocation="http://si4.si/schema/ ../../schema/si4.1.0.xsd">
+                    <si4:additionalMetadata>false</si4:additionalMetadata>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
     </METS:amdSec>
-    <METS:fileSec ID="default.file" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <METS:fileSec ID="files" xmlns:xlink="http://www.w3.org/1999/xlink">
         <METS:fileGrp>
             <!-- privzeta vrednost atributa @ID je file -->
-            <METS:file ID="file" OWNERID="PNZ-2015-3.pdf" MIMETYPE="application/pdf" CREATED="2016-12-07T11:25:58" SIZE="2338324" DMDID="default.dc">
+            <METS:file ID="file" OWNERID="PNZ-2015-3.pdf" MIMETYPE="application/pdf" CREATED="2016-12-07T11:25:58" SIZE="2338324" DMDID="description">
                 <!-- lahko pa spodnjo href povezavo zapišemo tudi s pomočjo prefiksa, npr. file:PNZ-2015-3.pdf,
                      ki bi predstavljal pot http://www.sistory.si/cdn/publikacije/36001-37000/36113/ -->
                 <METS:FLocat LOCTYPE="URL" xlink:href="PNZ-2015-3.pdf"/>
             </METS:file>
         </METS:fileGrp>
     </METS:fileSec>
-    <!-- V structMap prikažemo, kateri datoteki entiteta pripada. Na ta način posledično tudi vemo za cdn URL od datoteke. -->
-    <METS:structMap ID="default.structure" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- V structMap prikažemo, kateri intelektualni intiteti pripada file entiteta. -->
+    <METS:structMap ID="structure" xmlns:xlink="http://www.w3.org/1999/xlink">
         <METS:div TYPE="entity">
             <METS:mptr LOCTYPE="HANDLE" xlink:href="http://hdl.handle.net/11686/36113"/>
             <METS:div TYPE="file">
@@ -74,10 +81,10 @@
         </METS:div>
     </METS:structMap>
     <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <!-- Prevzeta vrednost atributa @BTYPE je default.
-             Trenutno se za file predvideva samo defalut behavior
+        <!-- Prevzeta vrednost atributa @BTYPE je dublincore.
+             Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. mods, data ipd.
         -->
-        <METS:behavior BTYPE="default">
+        <METS:behavior BTYPE="dublincore">
             <!-- URL prelje do XML sheme, s katero se parsa mets dokumente za ElasticSearch -->
             <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
         </METS:behavior>

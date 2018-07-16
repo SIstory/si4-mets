@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Najprej poglej /template/common.xml, ki je skupni template ze vse vrste si4 entitet. -->
+<METS:mets xmlns:METS="http://www.loc.gov/METS/"
+    xmlns:xlink="http://www.w3.org/TR/xlink"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    TYPE="collection"
+    ID=""
+    OBJID="">
+    <METS:metsHdr CREATEDATE="" LASTMODDATE="" RECORDSTATUS="">
+        <METS:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+            <METS:name></METS:name>
+            <METS:note></METS:note>
+        </METS:agent>
+        <METS:agent ROLE="CREATOR" ID="" TYPE="INDIVIDUAL">
+            <METS:name></METS:name>
+        </METS:agent>
+    </METS:metsHdr>
+    <METS:dmdSec ID="description">
+        <METS:mdWrap MDTYPE="">
+            <!-- Vsebuje METS:xmlData, katerega vsebina je odvisna od METS:mets/METS:behaviorSec/METS:behavior/@BTYPE -->
+        </METS:mdWrap>
+    </METS:dmdSec>
+    <METS:amdSec ID="amd">
+        <METS:techMD ID="tech.premis">
+            <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3">
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>si4</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>Local name</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>hdl</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory></premis:objectCategory>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+        <METS:techMD ID="tech.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="SI4" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:si4="http://si4.si/schema/">
+                    <si4:additionalMetadata>false</si4:additionalMetadata>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+    </METS:amdSec>
+    <!-- Template za vse bližnje relacije te entitete: se shranijo v XML zapis iz relacijske baze. -->
+    <!-- Atribut TYPE ima dve možni vrednosti, ki določata izhodiščni položaj entitete:
+           - primary
+           - dependant -->
+    <METS:structMap ID="structure" TYPE="" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Če je dependant, je na tem mestu vedno METS:div[@TYPE='collection'] in METS:div[@TYPE='collection']/METS:mptr.
+             Če je primary je brez spodnjega METS:div in pripadajočega METS:mptr  -->
+        <METS:div TYPE="collection">
+            <!-- Spodnji mptr element obstaja samo pri dependant collection.
+                 Atribut xlink:href vsebuje Handle parent zbirke (npr. http://hdl.handle.net/11686/menu16). -->
+            <METS:mptr LOCTYPE="HANDLE" xlink:href=""/>
+            <METS:div TYPE="collection" DMDID="description" ADMID="amd">
+                <!-- Nato sledijo vse morebitne child collection.
+                     Atribut ORDER vsebuje vrstni red iz relacijske baze (sistemski identifikator child collection ali poljubno integer vrednost).
+                     Atribut xlink:href vsebuje Handle child zbirke (npr. http://hdl.handle.net/11686/menu88). -->
+                <METS:div TYPE="collection" ORDER="">
+                    <METS:mptr LOCTYPE="HANDLE" xlink:href=""/>
+                </METS:div>
+                <!-- Pri prikazu mets.xml v URL repozitorija si4 (npr. http://www.sistory.si/11686/menu76/mets.xml)
+                     se tukaj izpišejo še vse primarne entitete te zbirke
+                     Atribut ORDER vsebuje vrstni red iz relacijske baze (sistemski identifikator child primarne intelektualne entitete ali poljubno integer vrednost).
+                     Atribut xlink:href vsebuje Handle od primarne entitete te zbirke (npr. http://hdl.handle.net/11686/36113). -->
+                <METS:div TYPE="entity" ORDER="">
+                    <METS:mptr LOCTYPE="HANDLE" xlink:href=""/>
+                </METS:div>
+            </METS:div>
+        </METS:div>
+    </METS:structMap>
+    <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:behavior BTYPE="">
+            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
+        </METS:behavior>
+    </METS:behaviorSec>
+</METS:mets>

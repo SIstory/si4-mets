@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Najprej poglej /template/common.xml, ki je skupni template ze vse vrste si4 entitet. -->
+<METS:mets xmlns:METS="http://www.loc.gov/METS/"
+    xmlns:xlink="http://www.w3.org/TR/xlink"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    TYPE="collection"
+    ID=""
+    OBJID="">
+    <METS:metsHdr CREATEDATE="" LASTMODDATE="" RECORDSTATUS="">
+        <METS:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+            <METS:name></METS:name>
+            <METS:note></METS:note>
+        </METS:agent>
+        <METS:agent ROLE="CREATOR" ID="" TYPE="INDIVIDUAL">
+            <METS:name></METS:name>
+        </METS:agent>
+    </METS:metsHdr>
+    <METS:dmdSec ID="description">
+        <METS:mdWrap MDTYPE="">
+            <!-- Vsebuje METS:xmlData, katerega vsebina je odvisna od METS:mets/METS:behaviorSec/METS:behavior/@BTYPE -->
+        </METS:mdWrap>
+    </METS:dmdSec>
+    <METS:amdSec ID="amd">
+        <METS:techMD ID="tech.premis">
+            <METS:mdWrap MDTYPE="PREMIS:OBJECT" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:premis="http://www.loc.gov/premis/v3">
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>si4</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>Local name</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectIdentifier>
+                        <premis:objectIdentifierType>hdl</premis:objectIdentifierType>
+                        <premis:objectIdentifierValue></premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory></premis:objectCategory>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+        <METS:techMD ID="tech.si4">
+            <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="SI4" MIMETYPE="text/xml">
+                <METS:xmlData xmlns:si4="http://si4.si/schema/">
+                    <si4:additionalMetadata>false</si4:additionalMetadata>
+                </METS:xmlData>
+            </METS:mdWrap>
+        </METS:techMD>
+    </METS:amdSec>
+    <!-- Ob shranitvi fizične datoteke se v fileSec zapišejo vsi glavni tehnični metapodatki te datoteke.  -->
+    <METS:fileSec ID="files" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:fileGrp>
+            <!-- Privzeta vrednost atributa @ID je file.
+                 Atribut OWNERID vsebuje ime fizične datoteke (npr. PNZ-2015-3.pdf)
+                 Atribut MIMETYPE vsebuje ustrezno generirano vrednost za MIME Tyype (npr. application/pdf)
+                 Atribut CREATED vsebuje časovno znamko, ko je bila fizična datoteka uvožena v repozitorij (in so bili zapisani vsi generirani podatki).
+                 Atribut SIZE vsebuje velikost fizične datoteke v bytih.
+            -->
+            <METS:file ID="file" OWNERID="" MIMETYPE="" CREATED="" SIZE="" DMDID="description">
+                <!-- Atribut xlink:href vsebuje absolutno pot do fizične datoteke v si4 repozitoriju,
+                     npr. http://www.sistory.si/cdn/publikacije/36001-37000/36113/PNZ-2015-3.pdf -->
+                <METS:FLocat LOCTYPE="URL" xlink:href=""/>
+            </METS:file>
+        </METS:fileGrp>
+    </METS:fileSec>
+    <!-- V structMap prikažemo, kateri intelektualni intiteti pripada file entiteta: razmerje do parent intellectual entity. -->
+    <METS:structMap ID="structure" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:div TYPE="entity">
+            <!-- Atribut xlink:href vsebuje Handle njegove parent entitete (npr. http://hdl.handle.net/11686/36113) -->
+            <METS:mptr LOCTYPE="HANDLE" xlink:href=""/>
+            <METS:div TYPE="file">
+                <METS:fptr FILEID="file"/>
+            </METS:div>
+        </METS:div>
+    </METS:structMap>
+    <METS:behaviorSec ID="si4.behavior" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <METS:behavior BTYPE="">
+            <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
+        </METS:behavior>
+    </METS:behaviorSec>
+</METS:mets>
