@@ -185,7 +185,7 @@
         <!-- Prevzeta vrednost atributa @BTYPE je dublincore.
              Če pa je dodatni metapodatkovni model, potem je druga vrednost, npr. mods, data ipd.
         -->
-        <METS:behavior BTYPE="dublincore">
+        <METS:behavior BTYPE="DC">
             <!-- URL prelje do XML sheme, s katero se parsa mets dokumente za ElasticSearch -->
             <METS:mechanism LOCTYPE="URL" xlink:href="resources/assets/xsd/"/>
         </METS:behavior>
